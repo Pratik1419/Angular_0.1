@@ -7,22 +7,23 @@ import { TasksComponent } from './tasks/tasks.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  // imports: [HeaderComponent, UserComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [HeaderComponent,UserComponent,TasksComponent]
-  // imports: [HeaderComponent, UserComponent, TasksComponent]
+  imports: [HeaderComponent, UserComponent,TasksComponent],
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId = 'u1';
+  // To stroe that information, which user is selected.
+  selectedUserId = 'ul';
 
+
+//getter property with get keyword which should be the selected user
   get selectedUser() {
     return this.users.find(user => user.id === this.selectedUserId)!;
   }
 
   onSelectUser(id: string){
-    this.selectedUserId = id;
+    this.selectedUserId = id; //that ID were receiving as a parameter.
     
   }
 }
